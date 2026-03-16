@@ -91,20 +91,6 @@ A cámara FPS captura o rato automaticamente (`MOUSE_MODE_CAPTURED`).
 
 ---
 
-## Como montar o proxecto en Godot 4
-
-1. Crea un proxecto novo en **Godot 4.x**.
-2. Crea unha escena baleira con un `Node3D` como raíz.
-3. Asigna `main.gd` á raíz.
-4. Crea un nodo fillo `Node3D` chamado exactamente `CornellBoxSetup` e asígnalle `cornell_box_setup.gd` — este script xera toda a xeometría en `_ready()`.
-5. Asegúrate de que os nodos xerados teñen os nomes exactos que `main.gd` busca en `@onready` (`Lights/DirectionalLight`, `Cameras/CameraFPS`, `Objects/SphereC`, etc.).
-6. O ficheiro `phong_classic.gdshader` é referenciado desde `main.gd`; podes tamén arrastralo ao editor e asignalo manualmente á SphereC.
-7. Executa a escena (`F5`).
-
-> **Nota:** Para usar o shader desde o editor, crea un `ShaderMaterial` na SphereC, asigna `phong_classic.gdshader` e axusta os uniformes no panel de propiedades.
-
----
-
 ## Comparación de modelos
 
 | Característica | PBR (StandardMaterial3D) | Phong Clásico (ShaderMaterial) |
