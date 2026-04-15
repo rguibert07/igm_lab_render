@@ -1,6 +1,91 @@
 [gd_scene format=3 uid="uid://b365p54g821y1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6xxru"]
+size = Vector3(4, 0.1, 4)
 
-[node name="MeshInstance3D" type="MeshInstance3D" unique_id=1130274948]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xxru"]
+albedo_color = Color(0.8156863, 0.8156863, 0.8156863, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_yvhtj"]
+size = Vector3(0.1, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvhtj"]
+albedo_color = Color(0.6901961, 0.1882353, 0.1882353, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_aq2ne"]
+size = Vector3(0.1, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aq2ne"]
+albedo_color = Color(0.18039216, 0.49019608, 0.19607843, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_etjlb"]
+size = Vector3(4, 4, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etjlb"]
+albedo_color = Color(0.9607843, 0.9607843, 0.9607843, 1)
+roughness = 0.85
+
+[sub_resource type="SphereMesh" id="SphereMesh_6xxru"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yvhtj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_aq2ne"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gw35f"]
+size = Vector3(0.5, 1.4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbm4x"]
+size = Vector3(0.5, 1.4, 0.5)
+
+[node name="Node3D" type="Node3D" unique_id=666367328]
+
+[node name="CornellBox" type="MeshInstance3D" parent="." unique_id=1931628022]
+
+[node name="Floor" type="MeshInstance3D" parent="CornellBox" unique_id=324790846]
 mesh = SubResource("BoxMesh_6xxru")
+surface_material_override/0 = SubResource("StandardMaterial3D_6xxru")
+
+[node name="WallLeft" type="MeshInstance3D" parent="CornellBox" unique_id=1169305246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+mesh = SubResource("BoxMesh_yvhtj")
+surface_material_override/0 = SubResource("StandardMaterial3D_yvhtj")
+
+[node name="WallRight" type="MeshInstance3D" parent="CornellBox" unique_id=671724908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+mesh = SubResource("BoxMesh_aq2ne")
+surface_material_override/0 = SubResource("StandardMaterial3D_aq2ne")
+
+[node name="WallBack" type="MeshInstance3D" parent="CornellBox" unique_id=1310628356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+mesh = SubResource("BoxMesh_etjlb")
+surface_material_override/0 = SubResource("StandardMaterial3D_etjlb")
+
+[node name="Objects" type="Node3D" parent="." unique_id=1684349310]
+
+[node name="SphereA" type="MeshInstance3D" parent="Objects" unique_id=1105480371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+rotation_order = 0
+mesh = SubResource("SphereMesh_6xxru")
+
+[node name="SphereB" type="MeshInstance3D" parent="Objects" unique_id=1767598260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+rotation_order = 0
+mesh = SubResource("SphereMesh_yvhtj")
+
+[node name="SphereC" type="MeshInstance3D" parent="Objects" unique_id=1017493775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+rotation_order = 0
+mesh = SubResource("SphereMesh_aq2ne")
+
+[node name="PrismaLeft" type="MeshInstance3D" parent="Objects" unique_id=1495297203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.7, -0.8)
+rotation_order = 0
+mesh = SubResource("BoxMesh_gw35f")
+
+[node name="PrismaRight" type="MeshInstance3D" parent="Objects" unique_id=1455711896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.7, -0.8)
+rotation_order = 0
+mesh = SubResource("BoxMesh_hbm4x")
