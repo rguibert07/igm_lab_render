@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b365p54g821y1"]
 
+[ext_resource type="Shader" uid="uid://dba3p8cpkqyge" path="res://phong.gdshader" id="1_yvhtj"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_6xxru"]
 size = Vector3(4, 0.1, 4)
 
@@ -30,9 +32,25 @@ roughness = 0.85
 
 [sub_resource type="SphereMesh" id="SphereMesh_6xxru"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gw35f"]
+albedo_color = Color(0.30980393, 0.7647059, 0.96862745, 1)
+roughness = 0.4
+
 [sub_resource type="SphereMesh" id="SphereMesh_yvhtj"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbm4x"]
+albedo_color = Color(0.6901961, 0.74509805, 0.77254903, 1)
+metallic = 1.0
+roughness = 0.2
+
 [sub_resource type="SphereMesh" id="SphereMesh_aq2ne"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xxru"]
+render_priority = 0
+shader = ExtResource("1_yvhtj")
+shader_parameter/albedo_color = Color(0.8, 0.5, 0.2, 1)
+shader_parameter/shininess = 32.0
+shader_parameter/ambient_str = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_gw35f"]
 size = Vector3(0.5, 1.4, 0.5)
@@ -69,16 +87,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_etjlb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
 rotation_order = 0
 mesh = SubResource("SphereMesh_6xxru")
+surface_material_override/0 = SubResource("StandardMaterial3D_gw35f")
 
 [node name="SphereB" type="MeshInstance3D" parent="Objects" unique_id=1767598260]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 rotation_order = 0
 mesh = SubResource("SphereMesh_yvhtj")
+surface_material_override/0 = SubResource("StandardMaterial3D_hbm4x")
 
 [node name="SphereC" type="MeshInstance3D" parent="Objects" unique_id=1017493775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
 rotation_order = 0
 mesh = SubResource("SphereMesh_aq2ne")
+surface_material_override/0 = SubResource("ShaderMaterial_6xxru")
 
 [node name="PrismaLeft" type="MeshInstance3D" parent="Objects" unique_id=1495297203]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.7, -0.8)
@@ -89,3 +110,19 @@ mesh = SubResource("BoxMesh_gw35f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.7, -0.8)
 rotation_order = 0
 mesh = SubResource("BoxMesh_hbm4x")
+
+[node name="Light1" type="DirectionalLight3D" parent="." unique_id=1172766600]
+transform = Transform3D(0.8660254, 0, 0.5, -0.35355338, 0.70710677, 0.6123724, -0.35355338, -0.70710677, 0.6123724, 0, 0, 0)
+rotation_order = 0
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="Light2" type="OmniLight3D" parent="." unique_id=1674420779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0.5)
+light_energy = 0.4
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="Light3" type="OmniLight3D" parent="." unique_id=461619300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+light_energy = 0.3
