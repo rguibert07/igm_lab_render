@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b365p54g821y1"]
 
+[ext_resource type="Script" uid="uid://bvtplovp8qoba" path="res://main.gd" id="1_etjlb"]
 [ext_resource type="Shader" uid="uid://dba3p8cpkqyge" path="res://phong.gdshader" id="1_yvhtj"]
+[ext_resource type="Script" uid="uid://cerbxwy3t3v8y" path="res://camera_fps.gd" id="2_aq2ne"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6xxru"]
 size = Vector3(4, 0.1, 4)
@@ -58,7 +60,19 @@ size = Vector3(0.5, 1.4, 0.5)
 [sub_resource type="BoxMesh" id="BoxMesh_hbm4x"]
 size = Vector3(0.5, 1.4, 0.5)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yvhtj"]
+
+[sub_resource type="Sky" id="Sky_aq2ne"]
+sky_material = SubResource("ProceduralSkyMaterial_yvhtj")
+
+[sub_resource type="Environment" id="Environment_etjlb"]
+background_mode = 2
+sky = SubResource("Sky_aq2ne")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.2
+
 [node name="Node3D" type="Node3D" unique_id=666367328]
+script = ExtResource("1_etjlb")
 
 [node name="CornellBox" type="MeshInstance3D" parent="." unique_id=1931628022]
 
@@ -126,3 +140,18 @@ omni_range = 6.0
 [node name="Light3" type="OmniLight3D" parent="." unique_id=461619300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
 light_energy = 0.3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1427643034]
+environment = SubResource("Environment_etjlb")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=588829380]
+
+[node name="Camera1" type="Camera3D" parent="CameraRig" unique_id=1540060298]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 3, 6)
+
+[node name="Camera2" type="Camera3D" parent="CameraRig" unique_id=327004164]
+transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 2.5, 1)
+
+[node name="Camera3" type="Camera3D" parent="CameraRig" unique_id=689132290]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.5, 3)
+script = ExtResource("2_aq2ne")
