@@ -3,13 +3,19 @@
 [ext_resource type="Script" uid="uid://bvtplovp8qoba" path="res://main.gd" id="1_etjlb"]
 [ext_resource type="Shader" uid="uid://dba3p8cpkqyge" path="res://phong.gdshader" id="1_yvhtj"]
 [ext_resource type="Script" uid="uid://cerbxwy3t3v8y" path="res://camera_fps.gd" id="2_aq2ne"]
+[ext_resource type="Texture2D" uid="uid://bsgokffjgkvbf" path="res://textures/WoodFloor063_1K-PNG/WoodFloor063_1K-PNG_Color.png" id="2_cn1gj"]
+[ext_resource type="Texture2D" uid="uid://s186qi2djyl4" path="res://textures/WoodFloor063_1K-PNG/WoodFloor063_1K-PNG_NormalGL.png" id="3_allc3"]
+[ext_resource type="Texture2D" uid="uid://dg2q1igtmd7qw" path="res://textures/WoodFloor063_1K-PNG/WoodFloor063_1K-PNG_Roughness.png" id="4_nh27e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6xxru"]
 size = Vector3(4, 0.1, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xxru"]
-albedo_color = Color(0.8156863, 0.8156863, 0.8156863, 1)
-roughness = 0.85
+albedo_texture = ExtResource("2_cn1gj")
+roughness_texture = ExtResource("4_nh27e")
+normal_enabled = true
+normal_texture = ExtResource("3_allc3")
+uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yvhtj"]
 size = Vector3(0.1, 4, 4)
